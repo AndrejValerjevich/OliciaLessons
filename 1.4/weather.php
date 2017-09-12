@@ -41,11 +41,11 @@ if(!file_exists('cashe.txt')) { //проверили, существует ли 
         <h3>Утро: </h3> <?= $oneDay->humidity; ?> <br/>
         <hr>
     <?php }
-    } else {
+    } else { //если в data нет данных - достаем их из cashe.txt (путь прописан в $path)
     $data = file_get_contents($path);
     $dataJson = json_decode($data);
     $arrayDays = $dataJson->list;
-    foreach($arrayDays as $oneDay){ //если в data нет данных - достаем их из cashe.txt (путь прописан в $path) ?>
+    foreach($arrayDays as $oneDay){ ?>
     <h3>Утро: </h3> <?= $oneDay->temp->morn; ?> <br/>
     <h3>Утро: </h3> <?= $oneDay->temp->day; ?> <br/>
     <h3>Утро: </h3> <?= $oneDay->temp->eve; ?> <br/>
